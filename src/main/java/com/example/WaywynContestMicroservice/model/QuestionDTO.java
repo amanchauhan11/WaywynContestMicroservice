@@ -15,6 +15,8 @@ public class QuestionDTO {
     String optionA;
     String optionB;
     String optionC;
+    String answer;
+
 
     public Integer getQuestionId() {
         return questionId;
@@ -96,6 +98,14 @@ public class QuestionDTO {
         this.optionC = optionC;
     }
 
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -110,15 +120,15 @@ public class QuestionDTO {
                 Objects.equals(binaryFilePath, that.binaryFilePath) &&
                 Objects.equals(optionA, that.optionA) &&
                 Objects.equals(optionB, that.optionB) &&
-                Objects.equals(optionC, that.optionC);
+                Objects.equals(optionC, that.optionC) &&
+                Objects.equals(answer, that.answer);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(questionId, questionText, difficultyLevel, categoryOfQuestion, answerType, questionType, binaryFilePath, optionA, optionB, optionC);
+        return Objects.hash(questionId, questionText, difficultyLevel, categoryOfQuestion, answerType, questionType, binaryFilePath, optionA, optionB, optionC, answer);
     }
-
 
     @Override
     public String toString() {
@@ -133,6 +143,8 @@ public class QuestionDTO {
                 ", optionA='" + optionA + '\'' +
                 ", optionB='" + optionB + '\'' +
                 ", optionC='" + optionC + '\'' +
+                ", answer='" + answer + '\'' +
                 '}';
     }
 }
+

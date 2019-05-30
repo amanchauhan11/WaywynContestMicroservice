@@ -1,20 +1,19 @@
 package com.example.WaywynContestMicroservice.service;
 
-import com.example.WaywynContestMicroservice.model.ContestDefinitionTable;
+import com.example.WaywynContestMicroservice.model.ContestDefinitionDTO;
 import com.example.WaywynContestMicroservice.model.ContestQuestionDTO;
-import com.example.WaywynContestMicroservice.model.ContestQuestionTable;
-import com.example.WaywynContestMicroservice.model.QuestionTable;
+import com.example.WaywynContestMicroservice.model.QuestionDTO;
 
 import java.util.List;
 
 public interface ContestService {
 
     ContestQuestionDTO fetchContestById(Integer contestId,Integer userId);
-    ContestDefinitionTable fetchAllContests();
-    ContestDefinitionTable postAContest(ContestDefinitionTable contestDefinitionTable, List<Integer> questionId);
-    String updateAContestByAdding(ContestQuestionTable contestQuestionTable);
-    String updateACOntestByDeleting(ContestQuestionTable contestQuestionTable);
-    QuestionTable fetchQuestionById(Integer questionId);
-    String postADynamicContest(ContestDefinitionTable contestDefinitionTable);
-    ContestDefinitionTable getContestByAdmin(String createdBy);
+    ContestDefinitionDTO fetchAllContests();
+    ContestDefinitionDTO postAContest(ContestDefinitionDTO contestDefinitionDTO, List<Integer> questionId);
+    String updateAContestByAdding(ContestQuestionDTO contestQuestionDTO);
+    String updateACOntestByDeleting(ContestQuestionDTO contestQuestionDTO);
+    QuestionDTO fetchQuestionById(Integer questionId);
+    String postADynamicContest(ContestDefinitionDTO contestDefinitionDTO);
+    ContestDefinitionDTO getContestByAdmin(String createdBy);
 }

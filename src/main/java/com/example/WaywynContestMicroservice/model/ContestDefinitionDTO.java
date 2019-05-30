@@ -17,7 +17,7 @@
 import java.util.Date;
 import java.util.Objects;
 
-public class ContestDefinitionTable {
+public class ContestDefinitionDTO {
     Integer contestId;
     String contestName;
     String createdBy;
@@ -114,7 +114,7 @@ public class ContestDefinitionTable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ContestDefinitionTable that = (ContestDefinitionTable) o;
+        ContestDefinitionDTO that = (ContestDefinitionDTO) o;
         return Objects.equals(contestId, that.contestId) &&
                 Objects.equals(contestName, that.contestName) &&
                 Objects.equals(createdBy, that.createdBy) &&
@@ -135,7 +135,7 @@ public class ContestDefinitionTable {
 
     @Override
     public String toString() {
-        return "ContestDefinitionTable{" +
+        return "ContestDefinitionDTO{" +
                 "contestId=" + contestId +
                 ", contestName='" + contestName + '\'' +
                 ", createdBy='" + createdBy + '\'' +

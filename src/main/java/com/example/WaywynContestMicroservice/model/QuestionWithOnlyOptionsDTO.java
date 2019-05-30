@@ -2,7 +2,7 @@ package com.example.WaywynContestMicroservice.model;
 
 import java.util.Objects;
 
-public class QuestionTable {
+public class QuestionWithOnlyOptionsDTO {
 
     Integer questionId;
 
@@ -15,8 +15,6 @@ public class QuestionTable {
     String optionA;
     String optionB;
     String optionC;
-    String answer;
-
 
     public Integer getQuestionId() {
         return questionId;
@@ -98,19 +96,11 @@ public class QuestionTable {
         this.optionC = optionC;
     }
 
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        QuestionTable that = (QuestionTable) o;
+        QuestionWithOnlyOptionsDTO that = (QuestionWithOnlyOptionsDTO) o;
         return Objects.equals(questionId, that.questionId) &&
                 Objects.equals(questionText, that.questionText) &&
                 Objects.equals(difficultyLevel, that.difficultyLevel) &&
@@ -120,19 +110,19 @@ public class QuestionTable {
                 Objects.equals(binaryFilePath, that.binaryFilePath) &&
                 Objects.equals(optionA, that.optionA) &&
                 Objects.equals(optionB, that.optionB) &&
-                Objects.equals(optionC, that.optionC) &&
-                Objects.equals(answer, that.answer);
+                Objects.equals(optionC, that.optionC);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(questionId, questionText, difficultyLevel, categoryOfQuestion, answerType, questionType, binaryFilePath, optionA, optionB, optionC, answer);
+        return Objects.hash(questionId, questionText, difficultyLevel, categoryOfQuestion, answerType, questionType, binaryFilePath, optionA, optionB, optionC);
     }
+
 
     @Override
     public String toString() {
-        return "QuestionTable{" +
+        return "QuestionWithOnlyOptionsDTO{" +
                 "questionId=" + questionId +
                 ", questionText='" + questionText + '\'' +
                 ", difficultyLevel='" + difficultyLevel + '\'' +
@@ -143,8 +133,6 @@ public class QuestionTable {
                 ", optionA='" + optionA + '\'' +
                 ", optionB='" + optionB + '\'' +
                 ", optionC='" + optionC + '\'' +
-                ", answer='" + answer + '\'' +
                 '}';
     }
 }
-

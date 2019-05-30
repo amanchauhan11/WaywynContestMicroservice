@@ -2,8 +2,8 @@ package com.example.WaywynContestMicroservice.model;
 
 public class FetchContestByIdDTO {
 
-    ContestDefinitionTable contestDefinitionTable;
-    QuestionDTO questionDTO;
+    ContestDefinitionDTO contestDefinitionDTO;
+    QuestionWithOnlyOptionsDTO questionDTO;
     UserResponseDTO userResponseDTO;
 
 
