@@ -22,5 +22,7 @@ public interface ContestService {
 
     QuestionDTO getQuestionById(int questionId);
 
-    <List>QuestionDTO getQuestionsOfContest(int contestId);
+    List<QuestionDTO> getQuestionsOfContest(int contestId);
+
+    List<ContestDefinitionDTO> getContestsByAdminName(String createdBy);
 }

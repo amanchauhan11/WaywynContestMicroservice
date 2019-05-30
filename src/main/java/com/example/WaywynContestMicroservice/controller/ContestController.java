@@ -50,7 +50,12 @@ public class ContestController {
     }
 
     @GetMapping("/contest/contests/contestId/questions")
-    public <List>QuestionDTO getQuestionsOfContest(int contestId){
+    public List<QuestionDTO> getQuestionsOfContest(int contestId){
         return contestService.getQuestionsOfContest(contestId);
+    }
+
+    @GetMapping("/contest/contests/byusername")
+    public List<ContestDefinitionDTO> getContestsByAdminName(String createdBy){
+        return contestService.getContestsByAdminName(createdBy);
     }
 }
