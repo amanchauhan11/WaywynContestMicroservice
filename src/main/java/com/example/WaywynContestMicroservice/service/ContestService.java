@@ -16,4 +16,5 @@ public interface ContestService {
     String updateACOntestByDeleting(ContestQuestionTable contestQuestionTable);
     QuestionTable fetchQuestionById(Integer questionId);
     String postADynamicContest(ContestDefinitionTable contestDefinitionTable);
+    ContestDefinitionTable getContestByAdmin(String createdBy);
 }
