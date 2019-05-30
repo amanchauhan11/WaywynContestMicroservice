@@ -35,6 +35,7 @@ public class ContestQuestionDTO {
     Date endTimeOfContest;
     Integer totalQuestionsInContest;
     Integer categoryId;
+   // QuestionTable[] questions;
     String questionText;
     String difficultyLevel;
     String categoryOfQuestion;

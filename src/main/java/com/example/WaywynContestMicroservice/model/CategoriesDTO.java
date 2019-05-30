@@ -6,7 +6,7 @@ package com.example.WaywynContestMicroservice.model;
 
 import java.util.Objects;
 
-public class CategoriesTable {
+public class CategoriesDTO {
 
     Integer categoryId;
     String categoryName;
@@ -31,7 +31,7 @@ public class CategoriesTable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CategoriesTable that = (CategoriesTable) o;
+        CategoriesDTO that = (CategoriesDTO) o;
         return Objects.equals(categoryId, that.categoryId) &&
                 Objects.equals(categoryName, that.categoryName);
     }
@@ -44,7 +44,7 @@ public class CategoriesTable {
 
     @Override
     public String toString() {
-        return "CategoriesTable{" +
+        return "CategoriesDTO{" +
                 "categoryId=" + categoryId +
                 ", categoryName='" + categoryName + '\'' +
                 '}';

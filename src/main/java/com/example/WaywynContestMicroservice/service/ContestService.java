@@ -11,7 +11,7 @@ public interface ContestService {
 
     ContestQuestionDTO fetchContestById(Integer contestId,Integer userId);
     ContestDefinitionTable fetchAllContests();
-    String postAContest(ContestDefinitionTable contestDefinitionTable, List<Integer> questionId);
+    ContestDefinitionTable postAContest(ContestDefinitionTable contestDefinitionTable, List<Integer> questionId);
     String updateAContestByAdding(ContestQuestionTable contestQuestionTable);
     String updateACOntestByDeleting(ContestQuestionTable contestQuestionTable);
     QuestionTable fetchQuestionById(Integer questionId);
