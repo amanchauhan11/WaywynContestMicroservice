@@ -9,24 +9,34 @@ import javax.persistence.Table;
 @Table(name = "Question")
 public class QuestionEntity {
     @Id
-    Integer questionId;
+     int questionId;
+
     String questionText;
+
     String difficultyLevel;
+
     String categoryOfQuestion;
+
     String answerType;
+
     String questionType;
+
     String binaryFilePath;
+
     String optionA;
+
     String optionB;
+
     String optionC;
+
     String answer;
 
 
-    public Integer getQuestionId() {
+    public int getQuestionId() {
         return questionId;
     }
 
-    public void setQuestionId(Integer questionId) {
+    public void setQuestionId(int questionId) {
         this.questionId = questionId;
     }
 

@@ -9,18 +9,23 @@ import java.util.Date;
 @Table(name = "ContestQuestion")
 public class ContestQuestionEntity {
     @Id
-    Integer contestQuestionId;
-    Integer questionId;
-    Integer contestId;
+    int  contestQuestionId;
+
+    int questionId;
+
+   int contestId;
+
     Boolean screenFlag;
+
     Date startTimeOfQuestion;
+
     Date endTimeOfQuestion;
 
-    public Integer getContestQuestionId() {
+    public int getContestQuestionId() {
         return contestQuestionId;
     }
 
-    public void setContestQuestionId(Integer contestQuestionId) {
+    public void setContestQuestionId(int contestQuestionId) {
         this.contestQuestionId = contestQuestionId;
     }
 
@@ -28,15 +33,15 @@ public class ContestQuestionEntity {
         return questionId;
     }
 
-    public void setQuestionId(Integer questionId) {
+    public void setQuestionId(int questionId) {
         this.questionId = questionId;
     }
 
-    public Integer getContestId() {
+    public int getContestId() {
         return contestId;
     }
 
-    public void setContestId(Integer contestId) {
+    public void setContestId(int contestId) {
         this.contestId = contestId;
     }
 

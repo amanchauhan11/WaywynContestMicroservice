@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class QuestionDTO {
 
-    Integer questionId;
+    int questionId;
 
     String questionText;
 
@@ -27,11 +27,11 @@ public class QuestionDTO {
     String answer;
 
 
-    public Integer getQuestionId() {
+    public int getQuestionId() {
         return questionId;
     }
 
-    public void setQuestionId(Integer questionId) {
+    public void setQuestionId(int questionId) {
         this.questionId = questionId;
     }
 

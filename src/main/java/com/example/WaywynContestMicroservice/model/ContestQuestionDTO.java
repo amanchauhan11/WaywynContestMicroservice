@@ -4,31 +4,50 @@ import java.util.Date;
 import java.util.Objects;
 
 public class ContestQuestionDTO {
-    Integer contestId;
+
+    int contestId;
+
     String contestName;
+
     String createdBy;
+
     Date createdOnDate;
-    Integer skipsAllowed;
+
+   int  skipsAllowed;
+
     String contestType;
+
     Date startTimeOfContest;
+
     Date endTimeOfContest;
-    Integer totalQuestionsInContest;
-    Integer categoryId;
+
+    int totalQuestionsInContest;
+
+    int categoryId;
+
     String questionText;
+
     String difficultyLevel;
+
     String categoryOfQuestion;
+
     String answerType;
+
     String questionType;
+
     String binaryFilePath;
+
     String optionA;
+
     String optionB;
+
     String optionC;
 
-    public Integer getContestId() {
+    public int getContestId() {
         return contestId;
     }
 
-    public void setContestId(Integer contestId) {
+    public void setContestId(int contestId) {
         this.contestId = contestId;
     }
 
@@ -56,11 +75,11 @@ public class ContestQuestionDTO {
         this.createdOnDate = createdOnDate;
     }
 
-    public Integer getSkipsAllowed() {
+    public int getSkipsAllowed() {
         return skipsAllowed;
     }
 
-    public void setSkipsAllowed(Integer skipsAllowed) {
+    public void setSkipsAllowed(int skipsAllowed) {
         this.skipsAllowed = skipsAllowed;
     }
 
@@ -88,19 +107,19 @@ public class ContestQuestionDTO {
         this.endTimeOfContest = endTimeOfContest;
     }
 
-    public Integer getTotalQuestionsInContest() {
+    public int getTotalQuestionsInContest() {
         return totalQuestionsInContest;
     }
 
-    public void setTotalQuestionsInContest(Integer totalQuestionsInContest) {
+    public void setTotalQuestionsInContest(int totalQuestionsInContest) {
         this.totalQuestionsInContest = totalQuestionsInContest;
     }
 
-    public Integer getCategoryId() {
+    public int getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(Integer categoryId) {
+    public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
 

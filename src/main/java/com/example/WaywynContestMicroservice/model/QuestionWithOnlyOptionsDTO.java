@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class QuestionWithOnlyOptionsDTO {
 
-    Integer questionId;
+    int questionId;
 
     String questionText;
 
@@ -24,11 +24,11 @@ public class QuestionWithOnlyOptionsDTO {
 
     String optionC;
 
-    public Integer getQuestionId() {
+    public int getQuestionId() {
         return questionId;
     }
 
-    public void setQuestionId(Integer questionId) {
+    public void setQuestionId(int questionId) {
         this.questionId = questionId;
     }
 

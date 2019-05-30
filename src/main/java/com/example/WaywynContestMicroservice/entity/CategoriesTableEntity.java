@@ -8,14 +8,15 @@ import javax.persistence.Table;
 @Table(name = "CategoriesTableEntity")
 public class CategoriesTableEntity {
     @Id
-    Integer categoryId;
+   int categoryId;
+
     String categoryName;
 
-    public Integer getCategoryId() {
+    public int getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(Integer categoryId) {
+    public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
 

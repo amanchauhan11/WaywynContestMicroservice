@@ -8,24 +8,31 @@ import java.util.Date;
 @Table(name = "ContestDefinition")
 public class ContestDefinitionEntity {
     @Id
-    Integer contestId;
+    int contestId;
     @Column(unique = true)
     String contestName;
 
     String createdBy;
-    Date createdOnDate;
-    Integer skipsAllowed;
-    String contestType;
-    Date startTimeOfContest;
-    Date endTimeOfContest;
-    Integer totalQuestionsInContest;
-    Integer categoryId;
 
-    public Integer getContestId() {
+    Date createdOnDate;
+
+    int skipsAllowed;
+
+    String contestType;
+
+    Date startTimeOfContest;
+
+    Date endTimeOfContest;
+
+    int totalQuestionsInContest;
+
+    int categoryId;
+
+    public int getContestId() {
         return contestId;
     }
 
-    public void setContestId(Integer contestId) {
+    public void setContestId(int contestId) {
         this.contestId = contestId;
     }
 
@@ -53,11 +60,11 @@ public class ContestDefinitionEntity {
         this.createdOnDate = createdOnDate;
     }
 
-    public Integer getSkipsAllowed() {
+    public int getSkipsAllowed() {
         return skipsAllowed;
     }
 
-    public void setSkipsAllowed(Integer skipsAllowed) {
+    public void setSkipsAllowed(int skipsAllowed) {
         this.skipsAllowed = skipsAllowed;
     }
 
@@ -85,15 +92,15 @@ public class ContestDefinitionEntity {
         this.endTimeOfContest = endTimeOfContest;
     }
 
-    public Integer getTotalQuestionsInContest() {
+    public int getTotalQuestionsInContest() {
         return totalQuestionsInContest;
     }
 
-    public void setTotalQuestionsInContest(Integer totalQuestionsInContest) {
+    public void setTotalQuestionsInContest(int totalQuestionsInContest) {
         this.totalQuestionsInContest = totalQuestionsInContest;
     }
 
-    public Integer getCategoryId() {
+    public int getCategoryId() {
         return categoryId;
     }
 
