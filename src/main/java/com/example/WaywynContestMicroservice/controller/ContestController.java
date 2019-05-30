@@ -3,6 +3,7 @@ package com.example.WaywynContestMicroservice.controller;
 import com.example.WaywynContestMicroservice.model.ContestDefinitionDTO;
 import com.example.WaywynContestMicroservice.model.FetchContestByIdDTO;
 import com.example.WaywynContestMicroservice.model.QuestionDTO;
+import com.example.WaywynContestMicroservice.model.SucessFailureResponseDTO;
 import com.example.WaywynContestMicroservice.service.ContestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,12 +31,12 @@ public class ContestController {
     }
 
     @PostMapping("/contest/postcontest")
-    public String createContest(ContestDefinitionDTO contestDefinitionDTO){
+    public SucessFailureResponseDTO createContest(ContestDefinitionDTO contestDefinitionDTO){
         return contestService.createContest(contestDefinitionDTO);
 
     }
     @PostMapping("/contest/postcontest/addquestion")
-    public String addQuestion(int contestId, int questionId, Date startTimeOfQuestion, Date endTimeOfQuestion){
+    public SucessFailureResponseDTO addQuestion(int contestId, int questionId, Date startTimeOfQuestion, Date endTimeOfQuestion){
         return contestService.addQuestion(contestId,questionId,startTimeOfQuestion,endTimeOfQuestion);
     }
 

@@ -1,9 +1,6 @@
 package com.example.WaywynContestMicroservice.service;
 
-import com.example.WaywynContestMicroservice.model.ContestQuestionDTO;
-import com.example.WaywynContestMicroservice.model.ContestDefinitionDTO;
-import com.example.WaywynContestMicroservice.model.FetchContestByIdDTO;
-import com.example.WaywynContestMicroservice.model.QuestionDTO;
+import com.example.WaywynContestMicroservice.model.*;
 
 import java.util.Date;
 import java.util.List;
@@ -14,9 +11,9 @@ public interface ContestService {
 
     List<ContestDefinitionDTO> getAllContests();
 
-    String createContest(ContestDefinitionDTO contestDefinitionTable);
+    SucessFailureResponseDTO createContest(ContestDefinitionDTO contestDefinitionTable);
 
-    String addQuestion(int contestId, int questionId, Date startTimeOfQuestion, Date endTimeOfQuestion);
+    SucessFailureResponseDTO addQuestion(int contestId, int questionId, Date startTimeOfQuestion, Date endTimeOfQuestion);
 
     String deleteQuestion(int  contestId,int questionId);
 
