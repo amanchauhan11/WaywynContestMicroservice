@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "ContestDefinition")
-public class ContestDefinitionTableEntity {
+public class ContestDefinitionEntity {
     @Id
     Integer contestId;
     @Column(unique = true)

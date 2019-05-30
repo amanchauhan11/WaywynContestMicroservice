@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "ContestQuestion")
-public class ContestQuestionTableEntity {
+public class ContestQuestionEntity {
     @Id
     Integer contestQuestionId;
     Integer questionId;

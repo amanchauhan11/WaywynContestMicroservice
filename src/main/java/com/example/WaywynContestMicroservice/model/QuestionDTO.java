@@ -7,14 +7,23 @@ public class QuestionDTO {
     Integer questionId;
 
     String questionText;
+
     String difficultyLevel;
+
     String categoryOfQuestion;
+
     String answerType;
+
     String questionType;
+
     String binaryFilePath;
+
     String optionA;
+
     String optionB;
+
     String optionC;
+
     String answer;
 
 
