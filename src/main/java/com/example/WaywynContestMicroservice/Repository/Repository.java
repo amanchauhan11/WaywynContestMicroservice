@@ -1,4 +1,4 @@
 package com.example.WaywynContestMicroservice.Repository;
 
-public class Repository  {
+public class Repository {
 }

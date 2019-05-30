@@ -1,4 +1,10 @@
 package com.example.WaywynContestMicroservice.service.Impl;
 
-public class ContestServiceImplementation {
+import com.example.WaywynContestMicroservice.model.ContestQuestionDTO;
+import com.example.WaywynContestMicroservice.service.ContestService;
+
+public class ContestServiceImplementation implements ContestService {
+
+
+
 }
