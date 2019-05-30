@@ -1,11 +1,13 @@
 package com.example.WaywynContestMicroservice.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "CategoriesTable")
 public class CategoriesTableEntity {
+    @Id
     Integer categoryId;
     String categoryName;
 

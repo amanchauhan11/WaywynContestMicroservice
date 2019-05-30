@@ -1,4 +1,18 @@
-package com.example.WaywynContestMicroservice.model;
+//questionId (Primary Key) 	: Unique question id
+//        questionText			: question text
+//        difficultyLevel			:  easy,medium,hard
+//        categoryOfQuestion		:  category of the question(ex : movies,sports,etc)
+//        answerType			: (single or multi-correct)
+//        questionType			: (image/video/audio/text)
+//        binaryFilePath			: URL of image/video/audio
+//        optionA			: Option 1 value
+//        optionB			: Option 2 value
+//        optionC			:Option 3 value
+//        answer				:String (in format A,B,C)
+
+
+
+        package com.example.WaywynContestMicroservice.model;
 
 import java.util.Objects;
 
@@ -11,6 +25,10 @@ public class QuestionTable {
     String answerType;
     String questionType;
     String binaryFilePath;
+    String optionA;
+    String optionB;
+    String optionC;
+    String answer;
 
 
     public Integer getQuestionId() {
@@ -69,6 +87,37 @@ public class QuestionTable {
         this.binaryFilePath = binaryFilePath;
     }
 
+    public String getOptionA() {
+        return optionA;
+    }
+
+    public void setOptionA(String optionA) {
+        this.optionA = optionA;
+    }
+
+    public String getOptionB() {
+        return optionB;
+    }
+
+    public void setOptionB(String optionB) {
+        this.optionB = optionB;
+    }
+
+    public String getOptionC() {
+        return optionC;
+    }
+
+    public void setOptionC(String optionC) {
+        this.optionC = optionC;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -81,13 +130,17 @@ public class QuestionTable {
                 Objects.equals(categoryOfQuestion, that.categoryOfQuestion) &&
                 Objects.equals(answerType, that.answerType) &&
                 Objects.equals(questionType, that.questionType) &&
-                Objects.equals(binaryFilePath, that.binaryFilePath);
+                Objects.equals(binaryFilePath, that.binaryFilePath) &&
+                Objects.equals(optionA, that.optionA) &&
+                Objects.equals(optionB, that.optionB) &&
+                Objects.equals(optionC, that.optionC) &&
+                Objects.equals(answer, that.answer);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(questionId, questionText, difficultyLevel, categoryOfQuestion, answerType, questionType, binaryFilePath);
+        return Objects.hash(questionId, questionText, difficultyLevel, categoryOfQuestion, answerType, questionType, binaryFilePath, optionA, optionB, optionC, answer);
     }
 
     @Override
@@ -100,6 +153,10 @@ public class QuestionTable {
                 ", answerType='" + answerType + '\'' +
                 ", questionType='" + questionType + '\'' +
                 ", binaryFilePath='" + binaryFilePath + '\'' +
+                ", optionA='" + optionA + '\'' +
+                ", optionB='" + optionB + '\'' +
+                ", optionC='" + optionC + '\'' +
+                ", answer='" + answer + '\'' +
                 '}';
     }
 }

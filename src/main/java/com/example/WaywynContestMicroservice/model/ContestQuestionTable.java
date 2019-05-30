@@ -1,3 +1,10 @@
+//contestQuestionId 	: Primary Key
+//        questionId 		:Unique question id (Foreign Key)
+//        contestId		: Unique id for each contest (Foreign Key)
+//        screenFlag 		: question to be again screened if the flag is true
+//        startTimeOfQuestion	: start time of the question
+//        endTimeOfQuestion	: end time of the question
+
 package com.example.WaywynContestMicroservice.model;
 
 import java.util.Date;

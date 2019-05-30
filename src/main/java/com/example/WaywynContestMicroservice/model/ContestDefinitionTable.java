@@ -1,4 +1,18 @@
-package com.example.WaywynContestMicroservice.model;
+//contestId (Primary Key) : Unique id for each contest
+//        contestName (Unique)   : Name of the contest
+//        createdBy  		    : Name of admin
+//        createdOnDate 	    : Date of creation
+//        skipsAllowed 		    : number of skips allowed
+//        contestType 		    : type of contest (static or dynamic)
+//        startTimeOfContest 	    : time at which the contest starts
+//        endTimeOfContest 	    : time at which the contest ends
+//        totalQuestionsInContest : total number of questions in the contest
+//        categoryId 	 	    : category of the contest(ex : movies,sports,etc)
+
+
+
+
+        package com.example.WaywynContestMicroservice.model;
 
 import java.util.Date;
 import java.util.Objects;
