@@ -1,24 +1,11 @@
-//questionId (Primary Key) 	: Unique question id
-//        questionText			: question text
-//        difficultyLevel			:  easy,medium,hard
-//        categoryOfQuestion		:  category of the question(ex : movies,sports,etc)
-//        answerType			: (single or multi-correct)
-//        questionType			: (image/video/audio/text)
-//        binaryFilePath			: URL of image/video/audio
-//        optionA			: Option 1 value
-//        optionB			: Option 2 value
-//        optionC			:Option 3 value
-//        answer				:String (in format A,B,C)
-
-
-
-        package com.example.WaywynContestMicroservice.model;
+package com.example.WaywynContestMicroservice.model;
 
 import java.util.Objects;
 
 public class QuestionTable {
 
     Integer questionId;
+
     String questionText;
     String difficultyLevel;
     String categoryOfQuestion;
