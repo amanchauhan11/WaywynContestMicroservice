@@ -1,8 +1,12 @@
 package com.example.WaywynContestMicroservice.service.Impl;
 
+import com.example.WaywynContestMicroservice.Repository.CategoriesTableRepository;
 import com.example.WaywynContestMicroservice.Repository.ContestDefinitionRepository;
+import com.example.WaywynContestMicroservice.Repository.ContestQuestionRepository;
 import com.example.WaywynContestMicroservice.Repository.QuestionRepository;
+import com.example.WaywynContestMicroservice.entity.CategoriesTableEntity;
 import com.example.WaywynContestMicroservice.entity.ContestDefinitionEntity;
+import com.example.WaywynContestMicroservice.entity.ContestQuestionEntity;
 import com.example.WaywynContestMicroservice.entity.QuestionEntity;
 import com.example.WaywynContestMicroservice.model.ContestDefinitionDTO;
 import com.example.WaywynContestMicroservice.model.FetchContestByIdDTO;
@@ -12,10 +16,13 @@ import com.example.WaywynContestMicroservice.service.ContestService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -24,14 +31,21 @@ import java.util.List;
 public class ContestServiceImplementation implements ContestService {
 
     @Autowired
-    ContestDefinitionRepository contestRepository;
+    private CategoriesTableRepository categoriesTableRepository;
+
+    @Autowired
+    private ContestDefinitionRepository contestRepository;
 
     @Autowired
     private QuestionRepository questionRepository;
 
+    @Autowired
+    private ContestQuestionRepository contestQuestionRepository;
+
     @Override
     public FetchContestByIdDTO getContestById(Integer contestId, Integer userId) {
         return null;
+
     }
 
     @Override
@@ -52,19 +66,17 @@ public class ContestServiceImplementation implements ContestService {
     }
 
     @Override
-    public QuestionDTO addQuestion( Integer contestId, Integer questionId, Date startTimeOfQuestion, Date endTimeOfQuestion) {
-        String url =  "ip:port/question/getQuestion?quesId="+questionId;
-
-        RestTemplate restTemplate = new RestTemplate();
-
-
-
-        return null;
+    public ContestQuestionEntity addQuestionInContest(ContestQuestionEntity contestQuestionEntity) {
+        System.out.println(contestQuestionEntity.toString());
+        ContestQuestionEntity contestQuestionEntity1= contestQuestionRepository.save(contestQuestionEntity);
+        return  contestQuestionEntity1;
     }
 
     @Override
-    public String deleteQuestion(Integer contestId, Integer questionId) {
-        return null;
+    public String deleteQuestion(Integer questionId) {
+         questionRepository.delete(questionId);
+         return "successfully deleted!!!!";
+
     }
 
     @Override
@@ -87,12 +99,42 @@ public class ContestServiceImplementation implements ContestService {
 
     @Override
     public List<QuestionDTO> getQuestionsOfContest(Integer contestId) {
-        return null;
+        List<Integer> questionEntityList = contestQuestionRepository.findAllByContestId(contestId);
+        List<QuestionDTO> response = new ArrayList<>();
+        for(int a:questionEntityList)
+        {
+            QuestionEntity questionEntity =  questionRepository.findOne(a);
+            QuestionDTO questionDTO = new QuestionDTO();
+            questionDTO.setAnswerType(questionEntity.getAnswerType());
+            questionDTO.setBinaryFilePath(questionEntity.getBinaryFilePath());
+            questionDTO.setCategoryOfQuestion(questionEntity.getCategoryOfQuestion());
+            questionDTO.setDifficultyLevel(questionEntity.getDifficultyLevel());
+            questionDTO.setOptionA(questionEntity.getOptionA());
+            questionDTO.setOptionB(questionEntity.getOptionB());
+            questionDTO.setOptionC(questionEntity.getOptionC());
+            questionDTO.setQuestionText(questionEntity.getQuestionText());
+            questionDTO.setQuestionType(questionEntity.getQuestionType());
+            questionDTO.setQuestionId(questionEntity.getQuestionId());
+            response.add(questionDTO);
+        }
+        return response;
+
     }
 
     @Override
     public List<ContestDefinitionDTO> getContestsByAdminName(String createdBy) {
-        return null;
+        List<ContestDefinitionEntity> contestDefinitionEntityList = new ArrayList<>();
+        contestDefinitionEntityList = contestRepository.findByCreatedBy(createdBy);
+        //System.out.println(contestDefinitionEntityList.get(0).toString());
+        List<ContestDefinitionDTO> contestDefinitionDTOList = new ArrayList<>();
+        ContestDefinitionDTO d=new ContestDefinitionDTO();
+
+        for(ContestDefinitionEntity e : contestDefinitionEntityList) {
+            BeanUtils.copyProperties(e, d);
+            contestDefinitionDTOList.add(d);
+            //System.out.println(contestDefinitionDTOList);
+        }
+        return contestDefinitionDTOList;
     }
 
     @Override

@@ -12,6 +12,8 @@ public class CategoriesDTO {
 
     private String categoryName;
 
+    private String imageURL;
+
     public Integer getCategoryId() {
         return categoryId;
     }
@@ -28,11 +30,20 @@ public class CategoriesDTO {
         this.categoryName = categoryName;
     }
 
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
     @Override
     public String toString() {
         return "CategoriesDTO{" +
                 "categoryId=" + categoryId +
                 ", categoryName='" + categoryName + '\'' +
+                ", imageURL='" + imageURL + '\'' +
                 '}';
     }
 }

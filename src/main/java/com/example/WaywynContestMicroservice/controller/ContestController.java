@@ -1,6 +1,10 @@
 package com.example.WaywynContestMicroservice.controller;
 
+import com.example.WaywynContestMicroservice.Repository.CategoriesTableRepository;
+import com.example.WaywynContestMicroservice.Repository.ContestDefinitionRepository;
 import com.example.WaywynContestMicroservice.Repository.QuestionRepository;
+import com.example.WaywynContestMicroservice.entity.CategoriesTableEntity;
+import com.example.WaywynContestMicroservice.entity.ContestQuestionEntity;
 import com.example.WaywynContestMicroservice.entity.QuestionEntity;
 import com.example.WaywynContestMicroservice.model.ContestDefinitionDTO;
 import com.example.WaywynContestMicroservice.model.FetchContestByIdDTO;
@@ -22,18 +26,24 @@ public class ContestController {
     @Autowired
     private ContestService contestService;
 
+    @Autowired
+    private CategoriesTableRepository categoriesTableRepository;
+
+    @Autowired
+    private ContestDefinitionRepository contestDefinitionRepository;
+
 
     @GetMapping("/contestOfUser")
     public FetchContestByIdDTO getContestById(Integer contestId, Integer userId) {
         return contestService.getContestById(contestId, userId);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/getall")
     public List<ContestDefinitionDTO> getAllContests() {
         return contestService.getAllContests();
     }
 
-    @PostMapping("/add")
+    @PostMapping("/addContest")
     public ContestDefinitionDTO createContest(@RequestBody ContestDefinitionDTO contestDefinitionDTO) throws ParseException {
 
         return contestService.createContest(contestDefinitionDTO);
@@ -41,13 +51,13 @@ public class ContestController {
 
 
     @PostMapping("/addContestQuestion")
-    public QuestionDTO addQuestion(int contestId, int questionId, Date startTimeOfQuestion, Date endTimeOfQuestion) {
-        return contestService.addQuestion(contestId, questionId, startTimeOfQuestion, endTimeOfQuestion);
+    public ContestQuestionEntity addQuestion(@RequestBody ContestQuestionEntity contestQuestionEntity) {
+        return contestService.addQuestionInContest(contestQuestionEntity);
     }
 
     @DeleteMapping("/postcontest/dynamic/deletequestion")
-    public String deleteQuestion(int contestId, int questionId) {
-        return contestService.deleteQuestion(contestId, questionId);
+    public String deleteQuestion(Integer questionId) {
+        return contestService.deleteQuestion(questionId);
     }
 
     @GetMapping("/fetchquestionbyid")
@@ -60,7 +70,7 @@ public class ContestController {
         return contestService.getQuestionsOfContest(contestId);
     }
 
-    @GetMapping("/byusername")
+    @GetMapping("/contestByCreater")
     public List<ContestDefinitionDTO> getContestsByAdminName(String createdBy) {
         return contestService.getContestsByAdminName(createdBy);
     }
@@ -69,4 +79,16 @@ public class ContestController {
     public QuestionEntity postQuestions(@RequestBody QuestionEntity questionEntity) {
         return contestService.postQuestion(questionEntity);
     }
+
+
+    @PostMapping("/addCategory")
+    public CategoriesTableEntity addCategory(@RequestBody  CategoriesTableEntity categoriesTableEntity){
+        return categoriesTableRepository.save(categoriesTableEntity);
+    }
+
+    @GetMapping("/getContestDefinition")
+    public ContestDefinitionDTO getContestDefinition(@RequestParam Integer contestId){
+        return contestDefinitionRepository.findByContestId(contestId);
+    }
+
 }

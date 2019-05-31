@@ -1,10 +1,6 @@
 package com.example.WaywynContestMicroservice.model;
 
-import com.example.WaywynContestMicroservice.Repository.CategoriesTableEntity;
-
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Date;
-import java.util.Objects;
 
 public class ContestDefinitionDTO {
 

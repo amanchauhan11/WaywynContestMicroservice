@@ -11,7 +11,7 @@ public class ContestQuestionEntity {
     @GeneratedValue
     private Integer contestQuestionId;
 
-
+    @Column(name = "question_id")
     private Integer questionId;
 
     private Integer contestId;

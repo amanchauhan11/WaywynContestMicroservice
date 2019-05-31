@@ -1,5 +1,6 @@
 package com.example.WaywynContestMicroservice.service;
 
+import com.example.WaywynContestMicroservice.entity.ContestQuestionEntity;
 import com.example.WaywynContestMicroservice.entity.QuestionEntity;
 import com.example.WaywynContestMicroservice.model.*;
 
@@ -10,21 +11,21 @@ import java.util.List;
 
 public interface ContestService {
 
-    FetchContestByIdDTO getContestById(Integer contestId, Integer userId);
+    FetchContestByIdDTO getContestById(Integer contestId, Integer userId); //abhay
 
-    List<ContestDefinitionDTO> getAllContests();
+    List<ContestDefinitionDTO> getAllContests(); //completed
 
-    ContestDefinitionDTO createContest(ContestDefinitionDTO contestDefinitionTable) throws ParseException;
+    ContestDefinitionDTO createContest(ContestDefinitionDTO contestDefinitionTable) throws ParseException; //completed
 
-    QuestionDTO addQuestion(Integer contestId, Integer questionId, Date startTimeOfQuestion, Date endTimeOfQuestion);
+    ContestQuestionEntity addQuestionInContest(ContestQuestionEntity contestQuestionEntity); //completed
 
-    String deleteQuestion(Integer contestId, Integer questionId);
+    String deleteQuestion(Integer questionId); //completed
 
-    QuestionDTO getQuestionById(Integer questionId);
+    QuestionDTO getQuestionById(Integer questionId); //completed
 
-    List<QuestionDTO> getQuestionsOfContest(Integer contestId);
+    List<QuestionDTO> getQuestionsOfContest(Integer contestId); //completed
 
-    List<ContestDefinitionDTO> getContestsByAdminName(String createdBy);
+    List<ContestDefinitionDTO> getContestsByAdminName(String createdBy); //completed
 
-    QuestionEntity postQuestion(QuestionEntity questionEntity);
+    QuestionEntity postQuestion(QuestionEntity questionEntity); //completed
 }

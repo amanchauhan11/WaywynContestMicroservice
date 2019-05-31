@@ -13,6 +13,9 @@ public class CategoriesTableEntity {
 
    private String categoryName;
 
+   @Column(name = "image_url")
+   private String imageURL;
+
 //    @OneToMany(mappedBy = "categoryId")
 //    private ContestDefinitionEntity contestDefinitionEntity;
 
@@ -30,5 +33,22 @@ public class CategoriesTableEntity {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    @Override
+    public String toString() {
+        return "CategoriesTableRepository{" +
+                "categoryId=" + categoryId +
+                ", categoryName='" + categoryName + '\'' +
+                ", imageURL='" + imageURL + '\'' +
+                '}';
     }
 }
