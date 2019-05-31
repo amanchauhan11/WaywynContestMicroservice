@@ -2,37 +2,78 @@ package com.example.WaywynContestMicroservice.entity;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 @Entity
-@Table(name = "ContestDefinition")
+@Table(name="contestdefinition")
 public class ContestDefinitionEntity {
     @Id
-    int contestId;
+    @GeneratedValue
+   private Integer contestId;
+
+   private Integer CategoryId;
+
     @Column(unique = true)
-    String contestName;
+    private String contestName;
 
-    String createdBy;
+    @NotNull
+    private String createdBy;
 
-    Date createdOnDate;
+    @NotNull
+    private Date createdOnDate;
 
-    int skipsAllowed;
+    @NotNull
+    @Column(columnDefinition =" integer default 2 ")
+    private Integer skipsAllowed;
 
-    String contestType;
+    @NotNull
+    @Column(columnDefinition="varchar(255) default 'static'")
+    private String contestType;
 
-    Date startTimeOfContest;
+    private Date startTimeOfContest;
 
-    Date endTimeOfContest;
+    private Date endTimeOfContest;
 
-    int totalQuestionsInContest;
+    @NotNull
+    @Column(columnDefinition=" integer default 10 ")
+    private Integer totalQuestionsInContest;
 
-    int categoryId;
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "contest_id_contest_id"), inverseJoinColumns = @JoinColumn(name = "question_id_question_id"))
+//    private Set<QuestionEntity> questionList;
 
-    public int getContestId() {
+
+    @Override
+    public String toString() {
+        return "ContestDefinitionEntity{" +
+                "contestId=" + contestId +
+                ", contestName='" + contestName + '\'' +
+                ", createdBy='" + createdBy + '\'' +
+                ", createdOnDate=" + createdOnDate +
+                ", skipsAllowed=" + skipsAllowed +
+                ", contestType='" + contestType + '\'' +
+                ", startTimeOfContest=" + startTimeOfContest +
+                ", endTimeOfContest=" + endTimeOfContest +
+                ", totalQuestionsInContest=" + totalQuestionsInContest +
+                '}';
+    }
+
+    public Integer getCategoryId() {
+        return CategoryId;
+    }
+
+    public void setCategoryId(Integer categoryId) {
+        CategoryId = categoryId;
+    }
+
+    public Integer getContestId() {
         return contestId;
     }
 
-    public void setContestId(int contestId) {
+    public void setContestId(Integer contestId) {
         this.contestId = contestId;
     }
 
@@ -60,11 +101,11 @@ public class ContestDefinitionEntity {
         this.createdOnDate = createdOnDate;
     }
 
-    public int getSkipsAllowed() {
+    public Integer getSkipsAllowed() {
         return skipsAllowed;
     }
 
-    public void setSkipsAllowed(int skipsAllowed) {
+    public void setSkipsAllowed(Integer skipsAllowed) {
         this.skipsAllowed = skipsAllowed;
     }
 
@@ -92,19 +133,11 @@ public class ContestDefinitionEntity {
         this.endTimeOfContest = endTimeOfContest;
     }
 
-    public int getTotalQuestionsInContest() {
+    public Integer getTotalQuestionsInContest() {
         return totalQuestionsInContest;
     }
 
-    public void setTotalQuestionsInContest(int totalQuestionsInContest) {
+    public void setTotalQuestionsInContest(Integer totalQuestionsInContest) {
         this.totalQuestionsInContest = totalQuestionsInContest;
-    }
-
-    public int getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
     }
 }

@@ -8,15 +8,15 @@ import java.util.Objects;
 
 public class CategoriesDTO {
 
-    int categoryId;
+    private Integer categoryId;
 
-    String categoryName;
+    private String categoryName;
 
-    public int getCategoryId() {
+    public Integer getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
 
@@ -26,21 +26,6 @@ public class CategoriesDTO {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CategoriesDTO that = (CategoriesDTO) o;
-        return Objects.equals(categoryId, that.categoryId) &&
-                Objects.equals(categoryName, that.categoryName);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(categoryId, categoryName);
     }
 
     @Override

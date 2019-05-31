@@ -1,42 +1,50 @@
 package com.example.WaywynContestMicroservice.entity;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "Question")
+@Table(name = "question")
 public class QuestionEntity {
     @Id
-     int questionId;
-
-    String questionText;
-
-    String difficultyLevel;
-
-    String categoryOfQuestion;
-
-    String answerType;
-
-    String questionType;
-
-    String binaryFilePath;
-
-    String optionA;
-
-    String optionB;
-
-    String optionC;
-
-    String answer;
+    private Integer questionId;
 
 
-    public int getQuestionId() {
+    private String questionText;
+
+    @NotNull
+    @Column(columnDefinition = "varchar(255) default 'easy'")
+    private String difficultyLevel;
+
+
+    private String categoryOfQuestion;
+
+    @NotNull
+    @Column(columnDefinition = "varchar(255) default 'single'")
+    private String answerType;
+
+    private String questionType;
+
+    private String binaryFilePath;
+
+    private String optionA;
+
+    private String optionB;
+
+    private String optionC;
+
+    private String answer;
+
+
+    public Integer getQuestionId() {
         return questionId;
     }
 
-    public void setQuestionId(int questionId) {
+    public void setQuestionId(Integer questionId) {
         this.questionId = questionId;
     }
 
@@ -118,5 +126,22 @@ public class QuestionEntity {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    @Override
+    public String toString() {
+        return "QuestionEntity{" +
+                "questionId=" + questionId +
+                ", questionText='" + questionText + '\'' +
+                ", difficultyLevel='" + difficultyLevel + '\'' +
+                ", categoryOfQuestion='" + categoryOfQuestion + '\'' +
+                ", answerType='" + answerType + '\'' +
+                ", questionType='" + questionType + '\'' +
+                ", binaryFilePath='" + binaryFilePath + '\'' +
+                ", optionA='" + optionA + '\'' +
+                ", optionB='" + optionB + '\'' +
+                ", optionC='" + optionC + '\'' +
+                ", answer='" + answer + '\'' +
+                '}';
     }
 }

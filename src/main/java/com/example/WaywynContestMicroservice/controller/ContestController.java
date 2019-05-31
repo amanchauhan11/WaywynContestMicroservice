@@ -3,14 +3,12 @@ package com.example.WaywynContestMicroservice.controller;
 import com.example.WaywynContestMicroservice.model.ContestDefinitionDTO;
 import com.example.WaywynContestMicroservice.model.FetchContestByIdDTO;
 import com.example.WaywynContestMicroservice.model.QuestionDTO;
-import com.example.WaywynContestMicroservice.model.SucessFailureResponseDTO;
+import com.example.WaywynContestMicroservice.model.SuccessFailureResponseDTO;
 import com.example.WaywynContestMicroservice.service.ContestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -31,17 +29,17 @@ public class ContestController {
     }
 
     @PostMapping("/contest/postcontest")
-    public SucessFailureResponseDTO createContest(ContestDefinitionDTO contestDefinitionDTO){
-        return contestService.createContest(contestDefinitionDTO);
+    public ContestDefinitionDTO createContest(@RequestBody  ContestDefinitionDTO contestDefinitionDTO) throws ParseException {
 
+        return contestService.createContest(contestDefinitionDTO);
     }
     @PostMapping("/contest/postcontest/addquestion")
-    public SucessFailureResponseDTO addQuestion(int contestId, int questionId, Date startTimeOfQuestion, Date endTimeOfQuestion){
+    public SuccessFailureResponseDTO addQuestion(int contestId, int questionId, Date startTimeOfQuestion, Date endTimeOfQuestion){
         return contestService.addQuestion(contestId,questionId,startTimeOfQuestion,endTimeOfQuestion);
     }
 
     @DeleteMapping("/contest/postcontest/dynamic/deletequestion")
-    public String deleteQuestion(int  contestId,int questionId){
+    public String deleteQuestion(int contestId,int questionId){
         return contestService.deleteQuestion(contestId,questionId);
     }
 

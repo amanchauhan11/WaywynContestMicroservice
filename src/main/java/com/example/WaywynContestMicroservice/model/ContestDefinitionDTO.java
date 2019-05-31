@@ -1,38 +1,28 @@
 package com.example.WaywynContestMicroservice.model;
 
+import com.example.WaywynContestMicroservice.Repository.CategoriesTableEntity;
+
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Date;
 import java.util.Objects;
 
 public class ContestDefinitionDTO {
 
-    int contestId;
+    private String contestName;
 
-    String contestName;
+    private String createdBy;
 
-    String createdBy;
+    private Integer skipsAllowed;
 
-    Date createdOnDate;
+    private String contestType;
 
-    int skipsAllowed;
+    private Date startTimeOfContest;
 
-    String contestType;
+    private Date endTimeOfContest;
 
-    Date startTimeOfContest;
+    private Integer totalQuestionsInContest;
 
-    Date endTimeOfContest;
-
-    int totalQuestionsInContest;
-
-    int categoryId;
-
-
-    public int getContestId() {
-        return contestId;
-    }
-
-    public void setContestId(int contestId) {
-        this.contestId = contestId;
-    }
+    private Integer categoryId;
 
     public String getContestName() {
         return contestName;
@@ -50,19 +40,11 @@ public class ContestDefinitionDTO {
         this.createdBy = createdBy;
     }
 
-    public Date getCreatedOnDate() {
-        return createdOnDate;
-    }
-
-    public void setCreatedOnDate(Date createdOnDate) {
-        this.createdOnDate = createdOnDate;
-    }
-
-    public int getSkipsAllowed() {
+    public Integer getSkipsAllowed() {
         return skipsAllowed;
     }
 
-    public void setSkipsAllowed(int skipsAllowed) {
+    public void setSkipsAllowed(Integer skipsAllowed) {
         this.skipsAllowed = skipsAllowed;
     }
 
@@ -90,58 +72,19 @@ public class ContestDefinitionDTO {
         this.endTimeOfContest = endTimeOfContest;
     }
 
-    public int getTotalQuestionsInContest() {
+    public Integer getTotalQuestionsInContest() {
         return totalQuestionsInContest;
     }
 
-    public void setTotalQuestionsInContest(int totalQuestionsInContest) {
+    public void setTotalQuestionsInContest(Integer totalQuestionsInContest) {
         this.totalQuestionsInContest = totalQuestionsInContest;
     }
 
-    public int getCategoryId() {
+    public Integer getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ContestDefinitionDTO that = (ContestDefinitionDTO) o;
-        return Objects.equals(contestId, that.contestId) &&
-                Objects.equals(contestName, that.contestName) &&
-                Objects.equals(createdBy, that.createdBy) &&
-                Objects.equals(createdOnDate, that.createdOnDate) &&
-                Objects.equals(skipsAllowed, that.skipsAllowed) &&
-                Objects.equals(contestType, that.contestType) &&
-                Objects.equals(startTimeOfContest, that.startTimeOfContest) &&
-                Objects.equals(endTimeOfContest, that.endTimeOfContest) &&
-                Objects.equals(totalQuestionsInContest, that.totalQuestionsInContest) &&
-                Objects.equals(categoryId, that.categoryId);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(contestId, contestName, createdBy, createdOnDate, skipsAllowed, contestType, startTimeOfContest, endTimeOfContest, totalQuestionsInContest, categoryId);
-    }
-
-    @Override
-    public String toString() {
-        return "ContestDefinitionDTO{" +
-                "contestId=" + contestId +
-                ", contestName='" + contestName + '\'' +
-                ", createdBy='" + createdBy + '\'' +
-                ", createdOnDate=" + createdOnDate +
-                ", skipsAllowed=" + skipsAllowed +
-                ", contestType='" + contestType + '\'' +
-                ", startTimeOfContest=" + startTimeOfContest +
-                ", endTimeOfContest=" + endTimeOfContest +
-                ", totalQuestionsInContest=" + totalQuestionsInContest +
-                ", categoryId=" + categoryId +
-                '}';
     }
 }

@@ -4,34 +4,33 @@ import java.util.Objects;
 
 public class QuestionDTO {
 
-    int questionId;
+    private Integer questionId;
 
-    String questionText;
+    private String questionText;
 
-    String difficultyLevel;
+    private String difficultyLevel;
 
-    String categoryOfQuestion;
+    private String categoryOfQuestion;
 
-    String answerType;
+    private String answerType;
 
-    String questionType;
+    private String questionType;
 
-    String binaryFilePath;
+    private String binaryFilePath;
 
-    String optionA;
+    private String optionA;
 
-    String optionB;
+    private String optionB;
 
-    String optionC;
+    private String optionC;
 
-    String answer;
+    private String answer;
 
-
-    public int getQuestionId() {
+    public Integer getQuestionId() {
         return questionId;
     }
 
-    public void setQuestionId(int questionId) {
+    public void setQuestionId(Integer questionId) {
         this.questionId = questionId;
     }
 
@@ -113,30 +112,6 @@ public class QuestionDTO {
 
     public void setAnswer(String answer) {
         this.answer = answer;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        QuestionDTO that = (QuestionDTO) o;
-        return Objects.equals(questionId, that.questionId) &&
-                Objects.equals(questionText, that.questionText) &&
-                Objects.equals(difficultyLevel, that.difficultyLevel) &&
-                Objects.equals(categoryOfQuestion, that.categoryOfQuestion) &&
-                Objects.equals(answerType, that.answerType) &&
-                Objects.equals(questionType, that.questionType) &&
-                Objects.equals(binaryFilePath, that.binaryFilePath) &&
-                Objects.equals(optionA, that.optionA) &&
-                Objects.equals(optionB, that.optionB) &&
-                Objects.equals(optionC, that.optionC) &&
-                Objects.equals(answer, that.answer);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(questionId, questionText, difficultyLevel, categoryOfQuestion, answerType, questionType, binaryFilePath, optionA, optionB, optionC, answer);
     }
 
     @Override

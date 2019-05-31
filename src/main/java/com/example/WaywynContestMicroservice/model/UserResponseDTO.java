@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class UserResponseDTO {
 
-    String userName;
+    private String userName;
 
     public String getUserName() {
         return userName;

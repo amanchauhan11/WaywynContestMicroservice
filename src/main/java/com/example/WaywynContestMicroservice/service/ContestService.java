@@ -2,6 +2,7 @@ package com.example.WaywynContestMicroservice.service;
 
 import com.example.WaywynContestMicroservice.model.*;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -11,9 +12,9 @@ public interface ContestService {
 
     List<ContestDefinitionDTO> getAllContests();
 
-    SucessFailureResponseDTO createContest(ContestDefinitionDTO contestDefinitionTable);
+    ContestDefinitionDTO createContest(ContestDefinitionDTO contestDefinitionTable) throws ParseException;
 
-    SucessFailureResponseDTO addQuestion(int contestId, int questionId, Date startTimeOfQuestion, Date endTimeOfQuestion);
+    SuccessFailureResponseDTO addQuestion(int contestId, int questionId, Date startTimeOfQuestion, Date endTimeOfQuestion);
 
     String deleteQuestion(int  contestId,int questionId);
 

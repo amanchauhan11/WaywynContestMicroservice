@@ -5,49 +5,49 @@ import java.util.Objects;
 
 public class ContestQuestionDTO {
 
-    int contestId;
+    private Integer contestId;
 
-    String contestName;
+    private String contestName;
 
-    String createdBy;
+    private String createdBy;
 
-    Date createdOnDate;
+    private Date createdOnDate;
 
-   int  skipsAllowed;
+    private Integer skipsAllowed;
 
-    String contestType;
+    private String contestType;
 
-    Date startTimeOfContest;
+    private Date startTimeOfContest;
 
-    Date endTimeOfContest;
+    private Date endTimeOfContest;
 
-    int totalQuestionsInContest;
+    private Integer totalQuestionsInContest;
 
-    int categoryId;
+    private Integer categoryId;
 
-    String questionText;
+    private String questionText;
 
-    String difficultyLevel;
+    private String difficultyLevel;
 
-    String categoryOfQuestion;
+    private String categoryOfQuestion;
 
-    String answerType;
+    private String answerType;
 
-    String questionType;
+    private String questionType;
 
-    String binaryFilePath;
+    private String binaryFilePath;
 
-    String optionA;
+    private String optionA;
 
-    String optionB;
+    private String optionB;
 
-    String optionC;
+    private String optionC;
 
-    public int getContestId() {
+    public Integer getContestId() {
         return contestId;
     }
 
-    public void setContestId(int contestId) {
+    public void setContestId(Integer contestId) {
         this.contestId = contestId;
     }
 
@@ -75,11 +75,11 @@ public class ContestQuestionDTO {
         this.createdOnDate = createdOnDate;
     }
 
-    public int getSkipsAllowed() {
+    public Integer getSkipsAllowed() {
         return skipsAllowed;
     }
 
-    public void setSkipsAllowed(int skipsAllowed) {
+    public void setSkipsAllowed(Integer skipsAllowed) {
         this.skipsAllowed = skipsAllowed;
     }
 
@@ -107,19 +107,19 @@ public class ContestQuestionDTO {
         this.endTimeOfContest = endTimeOfContest;
     }
 
-    public int getTotalQuestionsInContest() {
+    public Integer getTotalQuestionsInContest() {
         return totalQuestionsInContest;
     }
 
-    public void setTotalQuestionsInContest(int totalQuestionsInContest) {
+    public void setTotalQuestionsInContest(Integer totalQuestionsInContest) {
         this.totalQuestionsInContest = totalQuestionsInContest;
     }
 
-    public int getCategoryId() {
+    public Integer getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
 
@@ -193,38 +193,6 @@ public class ContestQuestionDTO {
 
     public void setOptionC(String optionC) {
         this.optionC = optionC;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ContestQuestionDTO that = (ContestQuestionDTO) o;
-        return Objects.equals(contestId, that.contestId) &&
-                Objects.equals(contestName, that.contestName) &&
-                Objects.equals(createdBy, that.createdBy) &&
-                Objects.equals(createdOnDate, that.createdOnDate) &&
-                Objects.equals(skipsAllowed, that.skipsAllowed) &&
-                Objects.equals(contestType, that.contestType) &&
-                Objects.equals(startTimeOfContest, that.startTimeOfContest) &&
-                Objects.equals(endTimeOfContest, that.endTimeOfContest) &&
-                Objects.equals(totalQuestionsInContest, that.totalQuestionsInContest) &&
-                Objects.equals(categoryId, that.categoryId) &&
-                Objects.equals(questionText, that.questionText) &&
-                Objects.equals(difficultyLevel, that.difficultyLevel) &&
-                Objects.equals(categoryOfQuestion, that.categoryOfQuestion) &&
-                Objects.equals(answerType, that.answerType) &&
-                Objects.equals(questionType, that.questionType) &&
-                Objects.equals(binaryFilePath, that.binaryFilePath) &&
-                Objects.equals(optionA, that.optionA) &&
-                Objects.equals(optionB, that.optionB) &&
-                Objects.equals(optionC, that.optionC);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(contestId, contestName, createdBy, createdOnDate, skipsAllowed, contestType, startTimeOfContest, endTimeOfContest, totalQuestionsInContest, categoryId, questionText, difficultyLevel, categoryOfQuestion, answerType, questionType, binaryFilePath, optionA, optionB, optionC);
     }
 
     @Override

@@ -1,31 +1,38 @@
 package com.example.WaywynContestMicroservice.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
-@Table(name = "ContestQuestion")
+@Table(name = "contestquestion")
 public class ContestQuestionEntity {
     @Id
-    int  contestQuestionId;
+    @GeneratedValue
+    private Integer contestQuestionId;
 
-    int questionId;
 
-   int contestId;
+    private Integer questionId;
 
-    Boolean screenFlag;
+    private Integer contestId;
 
-    Date startTimeOfQuestion;
+    @NotNull
+    @Column(columnDefinition = "bit default 0")
+    private Boolean screenFlag;
 
-    Date endTimeOfQuestion;
+    private Date startTimeOfQuestion;
 
-    public int getContestQuestionId() {
+    private Date endTimeOfQuestion;
+
+    public ContestQuestionEntity(){
+
+    }
+
+    public Integer getContestQuestionId() {
         return contestQuestionId;
     }
 
-    public void setContestQuestionId(int contestQuestionId) {
+    public void setContestQuestionId(Integer contestQuestionId) {
         this.contestQuestionId = contestQuestionId;
     }
 
@@ -33,15 +40,15 @@ public class ContestQuestionEntity {
         return questionId;
     }
 
-    public void setQuestionId(int questionId) {
+    public void setQuestionId(Integer questionId) {
         this.questionId = questionId;
     }
 
-    public int getContestId() {
+    public Integer getContestId() {
         return contestId;
     }
 
-    public void setContestId(int contestId) {
+    public void setContestId(Integer contestId) {
         this.contestId = contestId;
     }
 
@@ -67,5 +74,17 @@ public class ContestQuestionEntity {
 
     public void setEndTimeOfQuestion(Date endTimeOfQuestion) {
         this.endTimeOfQuestion = endTimeOfQuestion;
+    }
+
+    @Override
+    public String toString() {
+        return "ContestQuestionEntity{" +
+                "contestQuestionId=" + contestQuestionId +
+                ", questionId=" + questionId +
+                ", contestId=" + contestId +
+                ", screenFlag=" + screenFlag +
+                ", startTimeOfQuestion=" + startTimeOfQuestion +
+                ", endTimeOfQuestion=" + endTimeOfQuestion +
+                '}';
     }
 }
