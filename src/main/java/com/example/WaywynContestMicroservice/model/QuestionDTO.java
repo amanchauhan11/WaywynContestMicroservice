@@ -24,7 +24,7 @@ public class QuestionDTO {
 
     private String optionC;
 
-    private String answer;
+    //private String answer;
 
     public Integer getQuestionId() {
         return questionId;
@@ -106,13 +106,13 @@ public class QuestionDTO {
         this.optionC = optionC;
     }
 
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
+//    public String getAnswer() {
+//        return answer;
+//    }
+//
+//    public void setAnswer(String answer) {
+//        this.answer = answer;
+//    }
 
     @Override
     public String toString() {
@@ -127,7 +127,7 @@ public class QuestionDTO {
                 ", optionA='" + optionA + '\'' +
                 ", optionB='" + optionB + '\'' +
                 ", optionC='" + optionC + '\'' +
-                ", answer='" + answer + '\'' +
+
                 '}';
     }
 }

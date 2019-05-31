@@ -1,7 +1,9 @@
 package com.example.WaywynContestMicroservice.service.Impl;
 
 import com.example.WaywynContestMicroservice.Repository.ContestDefinitionRepository;
+import com.example.WaywynContestMicroservice.Repository.QuestionRepository;
 import com.example.WaywynContestMicroservice.entity.ContestDefinitionEntity;
+import com.example.WaywynContestMicroservice.entity.QuestionEntity;
 import com.example.WaywynContestMicroservice.model.ContestDefinitionDTO;
 import com.example.WaywynContestMicroservice.model.FetchContestByIdDTO;
 import com.example.WaywynContestMicroservice.model.QuestionDTO;
@@ -10,6 +12,7 @@ import com.example.WaywynContestMicroservice.service.ContestService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,8 +26,11 @@ public class ContestServiceImplementation implements ContestService {
     @Autowired
     ContestDefinitionRepository contestRepository;
 
+    @Autowired
+    private QuestionRepository questionRepository;
+
     @Override
-    public FetchContestByIdDTO getContestById(int contestId, int userId) {
+    public FetchContestByIdDTO getContestById(Integer contestId, Integer userId) {
         return null;
     }
 
@@ -46,24 +52,41 @@ public class ContestServiceImplementation implements ContestService {
     }
 
     @Override
-    public SuccessFailureResponseDTO addQuestion(int contestId, int questionId, Date startTimeOfQuestion, Date endTimeOfQuestion) {
+    public QuestionDTO addQuestion( Integer contestId, Integer questionId, Date startTimeOfQuestion, Date endTimeOfQuestion) {
+        String url =  "ip:port/question/getQuestion?quesId="+questionId;
+
+        RestTemplate restTemplate = new RestTemplate();
+
 
 
         return null;
     }
 
     @Override
-    public String deleteQuestion(int contestId, int questionId) {
+    public String deleteQuestion(Integer contestId, Integer questionId) {
         return null;
     }
 
     @Override
-    public QuestionDTO getQuestionById(int questionId) {
-        return null;
+    public QuestionDTO getQuestionById(Integer questionId) {
+
+        QuestionEntity questionEntity = questionRepository.findOne(questionId);
+        QuestionDTO questionDTO = new QuestionDTO();
+        questionDTO.setAnswerType(questionEntity.getAnswerType());
+        questionDTO.setBinaryFilePath(questionEntity.getBinaryFilePath());
+        questionDTO.setCategoryOfQuestion(questionEntity.getCategoryOfQuestion());
+        questionDTO.setDifficultyLevel(questionEntity.getDifficultyLevel());
+        questionDTO.setOptionA(questionEntity.getOptionA());
+        questionDTO.setOptionB(questionEntity.getOptionB());
+        questionDTO.setOptionC(questionEntity.getOptionC());
+        questionDTO.setQuestionText(questionEntity.getQuestionText());
+        questionDTO.setQuestionType(questionEntity.getQuestionType());
+        questionDTO.setQuestionId(questionEntity.getQuestionId());
+        return questionDTO;
     }
 
     @Override
-    public List<QuestionDTO> getQuestionsOfContest(int contestId) {
+    public List<QuestionDTO> getQuestionsOfContest(Integer contestId) {
         return null;
     }
 
@@ -72,6 +95,10 @@ public class ContestServiceImplementation implements ContestService {
         return null;
     }
 
+    @Override
+    public QuestionEntity postQuestion(QuestionEntity questionEntity) {
+        return questionRepository.save(questionEntity);
+    }
 
 
 }

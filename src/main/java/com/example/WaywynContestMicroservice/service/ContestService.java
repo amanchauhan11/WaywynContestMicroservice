@@ -1,26 +1,30 @@
 package com.example.WaywynContestMicroservice.service;
 
+import com.example.WaywynContestMicroservice.entity.QuestionEntity;
 import com.example.WaywynContestMicroservice.model.*;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
 public interface ContestService {
 
-    FetchContestByIdDTO getContestById(int contestId, int userId);
+    FetchContestByIdDTO getContestById(Integer contestId, Integer userId);
 
     List<ContestDefinitionDTO> getAllContests();
 
     ContestDefinitionDTO createContest(ContestDefinitionDTO contestDefinitionTable) throws ParseException;
 
-    SuccessFailureResponseDTO addQuestion(int contestId, int questionId, Date startTimeOfQuestion, Date endTimeOfQuestion);
+    QuestionDTO addQuestion(Integer contestId, Integer questionId, Date startTimeOfQuestion, Date endTimeOfQuestion);
 
-    String deleteQuestion(int  contestId,int questionId);
+    String deleteQuestion(Integer contestId, Integer questionId);
 
-    QuestionDTO getQuestionById(int questionId);
+    QuestionDTO getQuestionById(Integer questionId);
 
-    List<QuestionDTO> getQuestionsOfContest(int contestId);
+    List<QuestionDTO> getQuestionsOfContest(Integer contestId);
 
     List<ContestDefinitionDTO> getContestsByAdminName(String createdBy);
+
+    QuestionEntity postQuestion(QuestionEntity questionEntity);
 }
