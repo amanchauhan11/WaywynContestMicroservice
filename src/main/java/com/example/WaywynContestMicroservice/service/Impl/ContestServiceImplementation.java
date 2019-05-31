@@ -44,7 +44,11 @@ public class ContestServiceImplementation implements ContestService {
 
     @Override
     public FetchContestByIdDTO getContestById(Integer contestId, Integer userId) {
-        return null;
+        FetchContestByIdDTO fetchContestByIdDTO = new FetchContestByIdDTO();
+
+        fetchContestByIdDTO.setContestDefinitionDTO(contestRepository.findByContestId(contestId));
+        fetchContestByIdDTO.setQuestionDTOList(getQuestionsOfContest(contestId));
+         return fetchContestByIdDTO;
 
     }
 
